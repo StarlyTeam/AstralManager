@@ -18,7 +18,7 @@ public class UpdateCheckerTask implements Runnable {
     private static BukkitTask task;
 
     public static BukkitTask run(Plugin plugin) {
-        return task = plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, new UpdateCheckerTask(), 0L, 144000L /* 6시간 */);
+        return task = plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, new UpdateCheckerTask(), 0L, 432000L /* 6시간 */);
     }
 
     public static void stop() {
