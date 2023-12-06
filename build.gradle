@@ -1,0 +1,29 @@
+plugins {
+    id "java"
+}
+
+group = "kr.starly.manager"
+version = "1.0"
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url = "https://repo.starly.kr/repository/maven-public/" }
+}
+
+dependencies {
+    compileOnly "org.jetbrains:annotations:23.0.0"
+    compileOnly "org.projectlombok:lombok:1.18.26"
+    annotationProcessor "org.projectlombok:lombok:1.18.26"
+
+    compileOnly "org.spigotmc:spigot-api:R0.1:1.12.2"
+    compileOnly "net.md-5:bungeecord-chat:R0.1:1.12"
+
+    compileOnly "kr.starly.core:StarlyCore:2.0"
+    compileOnly "com.github.MilkBowl:Vault-API:1.7.1"
+    compileOnly "net.luckperms:api:5.4"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}

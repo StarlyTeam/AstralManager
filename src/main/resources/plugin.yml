@@ -1,0 +1,13 @@
+main: kr.starly.manager.AstralManager
+name: AstralManager
+author: Starly Team
+website: https://starly.kr/
+
+description: AstralManager Plugin.
+
+api-version: 1.13
+version: 1.0
+
+commands:
+  스탈리도구:
+    description: 플러그인을 관리할 수 있는 도구입니다.
