@@ -53,7 +53,11 @@ public class UpdateCheckerTask implements Runnable {
                 }
             });
 
-            logger.warning("다음 플러그인이 업데이트 되지 않았습니다: " + outDatedPlugins);
+            if (outDatedPlugins.isEmpty()) {
+                logger.info("모든 플러그인이 최신 버전입니다!");
+            } else {
+                logger.warning("다음 플러그인이 업데이트 되지 않았습니다: " + outDatedPlugins);
+            }
         } catch (IOException ex) {
             ex.printStackTrace();
 
