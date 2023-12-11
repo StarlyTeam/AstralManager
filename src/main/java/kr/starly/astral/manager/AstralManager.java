@@ -1,7 +1,7 @@
-package kr.starly.manager;
+package kr.starly.astral.manager;
 
-import kr.starly.manager.command.StarlyToolsCommand;
-import kr.starly.manager.task.UpdateCheckerTask;
+import kr.starly.astral.manager.task.UpdateCheckerTask;
+import kr.starly.astral.manager.command.StarlyToolsCommand;
 import lombok.Getter;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.plugin.java.JavaPlugin;

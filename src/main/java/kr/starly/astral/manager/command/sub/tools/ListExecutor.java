@@ -1,10 +1,11 @@
-package kr.starly.manager.command.sub.tools;
+package kr.starly.astral.manager.command.sub.tools;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import kr.starly.manager.AstralManager;
-import kr.starly.manager.command.SubCommandExecutor;
-import kr.starly.manager.util.AstralPluginUtil;
+import kr.starly.astral.manager.AstralManager;
+import kr.starly.astral.manager.command.SubCommandExecutor;
+import kr.starly.astral.manager.context.MessageContext;
+import kr.starly.astral.manager.util.AstralPluginUtil;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.Command;
@@ -15,8 +16,6 @@ import org.bukkit.plugin.PluginManager;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
-
-import static kr.starly.manager.context.MessageContext.PREFIX;
 
 public class ListExecutor implements SubCommandExecutor {
 
@@ -30,7 +29,7 @@ public class ListExecutor implements SubCommandExecutor {
         } catch (IOException ex) {
             ex.printStackTrace();
 
-            sender.sendMessage(PREFIX + "§c플러그인 목록을 불러오는데 실패했습니다.");
+            sender.sendMessage(MessageContext.PREFIX + "§c플러그인 목록을 불러오는데 실패했습니다.");
             return false;
         }
 
@@ -49,7 +48,7 @@ public class ListExecutor implements SubCommandExecutor {
         pluginNames.sort(Comparator.comparing(str -> plugins.get((String) str).isEnabled() ? 1 : -1).reversed());
 
         // 메시지 전송
-        TextComponent pluginComponent = new TextComponent(PREFIX + " §e전체 플러그인§f: ");
+        TextComponent pluginComponent = new TextComponent(MessageContext.PREFIX + " §e전체 플러그인§f: ");
         for (int index = 0; index < pluginNames.size(); index++) {
             String pluginName = pluginNames.get(index);
             JsonObject pluginData = pluginDatas.get(pluginName).getAsJsonObject();
@@ -81,9 +80,9 @@ public class ListExecutor implements SubCommandExecutor {
             }
         }
 
-        sender.sendMessage(PREFIX);
+        sender.sendMessage(MessageContext.PREFIX);
         sender.spigot().sendMessage(pluginComponent);
-        sender.sendMessage(PREFIX);
+        sender.sendMessage(MessageContext.PREFIX);
         return true;
     }
 

@@ -1,6 +1,6 @@
-package kr.starly.manager.collector;
+package kr.starly.astral.manager.collector;
 
-import kr.starly.manager.AstralManager;
+import kr.starly.astral.manager.AstralManager;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.model.group.Group;
 import net.luckperms.api.node.Node;

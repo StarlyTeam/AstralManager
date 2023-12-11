@@ -1,10 +1,10 @@
-package kr.starly.manager.util;
+package kr.starly.astral.manager.util;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.sun.nio.sctp.IllegalReceiveException;
-import kr.starly.manager.AstralManager;
+import kr.starly.astral.manager.AstralManager;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 

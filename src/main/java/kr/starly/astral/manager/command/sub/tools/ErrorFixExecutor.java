@@ -1,9 +1,10 @@
-package kr.starly.manager.command.sub.tools;
+package kr.starly.astral.manager.command.sub.tools;
 
 import com.google.gson.JsonElement;
-import kr.starly.manager.AstralManager;
-import kr.starly.manager.command.SubCommandExecutor;
-import kr.starly.manager.util.AstralPluginUtil;
+import kr.starly.astral.manager.context.MessageContext;
+import kr.starly.astral.manager.AstralManager;
+import kr.starly.astral.manager.command.SubCommandExecutor;
+import kr.starly.astral.manager.util.AstralPluginUtil;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -15,17 +16,15 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static kr.starly.manager.context.MessageContext.PREFIX;
-
 public class ErrorFixExecutor implements SubCommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) throws IOException {
         if (args.length == 0) {
-            sender.sendMessage(PREFIX + "§c오류가 발생한 플러그인을 입력해주세요.");
+            sender.sendMessage(MessageContext.PREFIX + "§c오류가 발생한 플러그인을 입력해주세요.");
             return false;
         } else if (args.length != 1) {
-            sender.sendMessage(PREFIX + "§c명령어가 올바르지 않습니다.");
+            sender.sendMessage(MessageContext.PREFIX + "§c명령어가 올바르지 않습니다.");
             return false;
         }
 
@@ -37,7 +36,7 @@ public class ErrorFixExecutor implements SubCommandExecutor {
         Map<String, JsonElement> targetData = AstralPluginUtil.fetchPlugin(targetName);
 
         // Step1: 정보 출력
-        sender.sendMessage(PREFIX + "§7플러그인 활성: " + target.isEnabled());
+        sender.sendMessage(MessageContext.PREFIX + "§7플러그인 활성: " + target.isEnabled());
 
         // Step2: 코어 확인
         Plugin corePlugin = pluginManager.getPlugin("StarlyCore");
@@ -77,7 +76,7 @@ public class ErrorFixExecutor implements SubCommandExecutor {
             }
         }
 
-        sender.sendMessage(PREFIX + "§eℹ §c오류를 찾지 못했습니다.");
+        sender.sendMessage(MessageContext.PREFIX + "§eℹ §c오류를 찾지 못했습니다.");
         return true;
     }
 
@@ -96,9 +95,9 @@ public class ErrorFixExecutor implements SubCommandExecutor {
     }
 
     private void findProblem(CommandSender sender, String problem) {
-        sender.sendMessage(PREFIX);
-        sender.sendMessage(PREFIX + "§eℹ §f문제를 찾았습니다.");
-        sender.sendMessage(PREFIX + "§eℹ §7" + problem);
-        sender.sendMessage(PREFIX);
+        sender.sendMessage(MessageContext.PREFIX);
+        sender.sendMessage(MessageContext.PREFIX + "§eℹ §f문제를 찾았습니다.");
+        sender.sendMessage(MessageContext.PREFIX + "§eℹ §7" + problem);
+        sender.sendMessage(MessageContext.PREFIX);
     }
 }

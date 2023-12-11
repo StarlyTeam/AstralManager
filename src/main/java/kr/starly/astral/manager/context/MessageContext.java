@@ -1,4 +1,4 @@
-package kr.starly.manager.context;
+package kr.starly.astral.manager.context;
 
 public class MessageContext {
 

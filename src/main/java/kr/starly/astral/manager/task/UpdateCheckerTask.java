@@ -1,8 +1,8 @@
-package kr.starly.manager.task;
+package kr.starly.astral.manager.task;
 
 import com.google.gson.JsonElement;
-import kr.starly.manager.AstralManager;
-import kr.starly.manager.util.AstralPluginUtil;
+import kr.starly.astral.manager.util.AstralPluginUtil;
+import kr.starly.astral.manager.AstralManager;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.scheduler.BukkitTask;

@@ -1,4 +1,4 @@
-package kr.starly.manager.command;
+package kr.starly.astral.manager.command;
 
 import org.bukkit.command.*;
 

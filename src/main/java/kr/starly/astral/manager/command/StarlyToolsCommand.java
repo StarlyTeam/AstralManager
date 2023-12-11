@@ -1,17 +1,16 @@
-package kr.starly.manager.command;
+package kr.starly.astral.manager.command;
 
-import kr.starly.manager.AstralManager;
-import kr.starly.manager.command.sub.tools.ListExecutor;
-import kr.starly.manager.command.sub.tools.ReportExecutor;
-import kr.starly.manager.command.sub.tools.ErrorFixExecutor;
+import kr.starly.astral.manager.AstralManager;
+import kr.starly.astral.manager.command.sub.tools.ErrorFixExecutor;
+import kr.starly.astral.manager.command.sub.tools.ListExecutor;
+import kr.starly.astral.manager.command.sub.tools.ReportExecutor;
+import kr.starly.astral.manager.context.MessageContext;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.util.StringUtil;
 
 import java.util.*;
-
-import static kr.starly.manager.context.MessageContext.PREFIX;
 
 public class StarlyToolsCommand implements TabExecutor {
 
@@ -26,16 +25,16 @@ public class StarlyToolsCommand implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage(PREFIX + "§dv" + AstralManager.getInstance().getDescription().getVersion());
+            sender.sendMessage(MessageContext.PREFIX + "§dv" + AstralManager.getInstance().getDescription().getVersion());
             return true;
         }
 
         SubCommandExecutor executor = executors.get(args[0]);
         if (executor == null) {
-            sender.sendMessage(PREFIX + "§c알 수 없는 명령어입니다.");
+            sender.sendMessage(MessageContext.PREFIX + "§c알 수 없는 명령어입니다.");
             return false;
         } else if (!sender.isOp()) {
-            sender.sendMessage(PREFIX + "§c해당 명령어를 사용하실 수 없습니다.");
+            sender.sendMessage(MessageContext.PREFIX + "§c해당 명령어를 사용하실 수 없습니다.");
             return false;
         } else {
             try {
@@ -44,7 +43,7 @@ public class StarlyToolsCommand implements TabExecutor {
             } catch (Exception ex) {
                 ex.printStackTrace();
 
-                sender.sendMessage(PREFIX + "§c명령어를 실행하는 도중 오류가 발생했습니다.");
+                sender.sendMessage(MessageContext.PREFIX + "§c명령어를 실행하는 도중 오류가 발생했습니다.");
                 return false;
             }
         }

@@ -1,7 +1,7 @@
-package kr.starly.manager.collector;
+package kr.starly.astral.manager.collector;
 
-import kr.starly.manager.AstralManager;
-import kr.starly.manager.util.AstralPluginUtil;
+import kr.starly.astral.manager.AstralManager;
+import kr.starly.astral.manager.util.AstralPluginUtil;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;

@@ -1,4 +1,4 @@
-main: kr.starly.manager.AstralManager
+main: kr.starly.astral.manager.AstralManager
 name: AstralManager
 author: Starly Team
 website: https://starly.kr/
