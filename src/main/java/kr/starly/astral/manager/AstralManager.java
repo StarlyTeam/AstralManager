@@ -1,6 +1,6 @@
 package kr.starly.astral.manager;
 
-import kr.starly.astral.manager.task.UpdateCheckerTask;
+import kr.starly.astral.manager.task.UpdateCheckTask;
 import kr.starly.astral.manager.command.StarlyToolsCommand;
 import lombok.Getter;
 import org.bukkit.command.TabExecutor;
@@ -17,10 +17,15 @@ public class AstralManager extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        TabExecutor 스탈리도구Executor = new StarlyToolsCommand();
-        getCommand("스탈리도구").setExecutor(스탈리도구Executor);
-        getCommand("스탈리도구").setTabCompleter(스탈리도구Executor);
+        TabExecutor StarlyToolsExecutor = new StarlyToolsCommand();
+        getCommand("스탈리도구").setExecutor(StarlyToolsExecutor);
+        getCommand("스탈리도구").setTabCompleter(StarlyToolsExecutor);
 
-        UpdateCheckerTask.run(this);
+        UpdateCheckTask.run(this);
+    }
+
+    @Override
+    public void onDisable() {
+        UpdateCheckTask.stop();
     }
 }

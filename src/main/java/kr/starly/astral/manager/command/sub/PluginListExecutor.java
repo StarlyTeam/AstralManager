@@ -1,4 +1,4 @@
-package kr.starly.astral.manager.command.sub.tools;
+package kr.starly.astral.manager.command.sub;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ListExecutor implements SubCommandExecutor {
+public class PluginListExecutor implements SubCommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {

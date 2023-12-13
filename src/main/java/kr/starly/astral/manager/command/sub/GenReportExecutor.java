@@ -1,4 +1,4 @@
-package kr.starly.astral.manager.command.sub.tools;
+package kr.starly.astral.manager.command.sub;
 
 import kr.starly.astral.manager.AstralManager;
 import kr.starly.astral.manager.collector.LuckPermsSettingCollector;
@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-public class ReportExecutor implements SubCommandExecutor {
+public class GenReportExecutor implements SubCommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {

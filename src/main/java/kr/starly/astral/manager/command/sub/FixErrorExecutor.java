@@ -1,4 +1,4 @@
-package kr.starly.astral.manager.command.sub.tools;
+package kr.starly.astral.manager.command.sub;
 
 import com.google.gson.JsonElement;
 import kr.starly.astral.manager.context.MessageContext;
@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ErrorFixExecutor implements SubCommandExecutor {
+public class FixErrorExecutor implements SubCommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) throws IOException {

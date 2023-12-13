@@ -1,9 +1,9 @@
 package kr.starly.astral.manager.command;
 
 import kr.starly.astral.manager.AstralManager;
-import kr.starly.astral.manager.command.sub.tools.ErrorFixExecutor;
-import kr.starly.astral.manager.command.sub.tools.ListExecutor;
-import kr.starly.astral.manager.command.sub.tools.ReportExecutor;
+import kr.starly.astral.manager.command.sub.FixErrorExecutor;
+import kr.starly.astral.manager.command.sub.PluginListExecutor;
+import kr.starly.astral.manager.command.sub.GenReportExecutor;
 import kr.starly.astral.manager.context.MessageContext;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -14,12 +14,11 @@ import java.util.*;
 
 public class StarlyToolsCommand implements TabExecutor {
 
-    private static Map<String, SubCommandExecutor> executors = new HashMap<>();
-
+    private static final Map<String, SubCommandExecutor> executors = new HashMap<>();
     static {
-        executors.put("목록", new ListExecutor());
-        executors.put("보고서", new ReportExecutor());
-        executors.put("문제해결", new ErrorFixExecutor());
+        executors.put("목록", new PluginListExecutor());
+        executors.put("보고서", new GenReportExecutor());
+        executors.put("문제해결", new FixErrorExecutor());
     }
 
     @Override

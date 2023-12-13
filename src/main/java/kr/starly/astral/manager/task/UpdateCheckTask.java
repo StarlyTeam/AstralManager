@@ -13,12 +13,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-public class UpdateCheckerTask implements Runnable {
+public class UpdateCheckTask implements Runnable {
 
     private static BukkitTask task;
 
     public static BukkitTask run(Plugin plugin) {
-        return task = plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, new UpdateCheckerTask(), 0L, 432000L /* 6시간 */);
+        return task = plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, new UpdateCheckTask(), 0L, 432000L /* 6시간 */);
     }
 
     public static void stop() {
